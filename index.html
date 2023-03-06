@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tailwind CSS Hamburger Menu Example Tutorial</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="dist/output.css" />
+  </head>
+  <body>
+    <div class="min-h-screen bg-gray-100">
+      <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16">
+            <div class="shrink-0 flex items-center">
+              <img src="img/logo.png" class="h-6 w-auto block" />
+            </div>
+
+            <div class="-mr-2 flex items-center">
+              <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div :class="{'block': open, 'hidden': ! open}" class="hidden">
+          <div class="pt-2 pb-3 space-y-1 font-medium">
+            <a href="/" class="block p-3 border-l-4 border-indigo-400 text-indigo-700 bg-indigo-50">Dashboard</a>
+            <a href="/users" class="block p-3 border-l-4 border-transparent text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300">Users</a>
+            <a href="/settings" class="block p-3 border-l-4 border-transparent text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300">Settings</a>
+          </div>
+        </div>
+      </nav>
+
+      <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+          <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            Dashboard
+          </h2>
+        </div>
+      </header>
+
+      <main>
+        <div class="py-6">
+          <div class="max-w-7xl mx-auto px-6">
+            <div class="bg-white overflow-hidden shadow-sm rounded-md sm:rounded-lg">
+              <img src="img/dashboard.png" />
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
